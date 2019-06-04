@@ -1,0 +1,20 @@
+---
+
+clusterName: "config"
+replicas: 1
+
+extraEnvs:
+  - name: ELASTIC_PASSWORD
+    value: "changeme"
+
+esConfig:
+  elasticsearch.yml: |
+    path.data: /usr/share/elasticsearch/data
+
+keystore:
+  enabled: true
+  strings:
+    bootstrap.password: '${ELASTIC_PASSWORD}'
+    xpack.notification.slack.account.monitoring.secure_url: "https://hooks.slack.com/services/asdasdasd/asdasdas/asdasd"
+    #  files:
+    #    gcs.client.default.credentials_file: /usr/share/elasticsearch/config/gcs-credentials.json
